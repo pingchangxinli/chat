@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>登陆</title>
+
+		<meta name="description" content="User login page" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="css/bootstrapValidator.css">
+		<!-- text fonts -->
+		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout light-login">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="ace-icon fa fa-coffee green"></i>
+												请输入您的信息
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form id="loginForm">
+												<fieldset>
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="请输入您的手机号" id="login_mobile" name="login_mobile"/>
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="请输入您的登录密码" id="login_password" name="login_password"/>
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+
+														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" id="loginButton">
+															<i class="ace-icon fa fa-key"></i>
+															<span class="bigger-110">登陆</span>
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+											<div class="space-6"></div>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+											<!--  
+												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+													<i class="ace-icon fa fa-arrow-left"></i>
+													忘记密码？
+												</a>
+											-->
+											</div>
+
+											<div>
+												<a href="#" data-target="#signup-box" class="user-signup-link">
+													注册
+													<i class="ace-icon fa fa-arrow-right"></i>
+												</a>
+											</div>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="ace-icon fa fa-key"></i>
+												Retrieve Password
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												Enter your email and to receive instructions
+											</p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+
+													<div class="clearfix">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+															<i class="ace-icon fa fa-lightbulb-o"></i>
+															<span class="bigger-110">Send Me!</span>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div><!-- /.widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												登陆
+												<i class="ace-icon fa fa-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.forgot-box -->
+
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="ace-icon fa fa-users blue"></i>
+												新用户注册
+											</h4>
+
+											<div class="space-6"></div>
+											<p> 录入信息: </p>
+
+											<form id="registerForm" action="/account">
+												<fieldset>
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="用户昵称" name="userName"/>
+															<i class="ace-icon fa fa-envelope"></i>
+														</span>
+													</label>
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="手机号" name="mobile"/>
+															<i class="ace-icon fa fa-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="密码" name="password" id="password"/>
+															<i class="ace-icon fa fa-lock"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix form-group">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="确认密码" id="confirmPassword" name="confirmPassword"/>
+															<i class="ace-icon fa fa-retweet"></i>
+														</span>
+													</label>
+
+													<label class="block form-group">
+														<input type="checkbox" class="ace" name="agree[]" value=""/>
+														<span class="lbl">
+															我同意
+															<a href="#">用户协议</a>
+														</span>
+													</label>
+
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														<button type="reset" class="width-30 pull-left btn btn-sm">
+															<i class="ace-icon fa fa-refresh"></i>
+															<span class="bigger-110">重置</span>
+														</button>
+
+														<button type="button" class="width-65 pull-right btn btn-sm btn-success" id="registerButton">
+															<span class="bigger-110">注册</span>
+
+															<i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+
+										<div class="toolbar center">
+											<a href="#" data-target="#login-box" class="back-to-login-link">
+												<i class="ace-icon fa fa-arrow-left"></i>
+												登陆
+											</a>
+										</div>
+									</div><!-- /.widget-body -->
+								</div><!-- /.signup-box -->
+							</div><!-- /.position-relative -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							    <div class="modal-dialog">
+							        <div class="modal-content">
+							            <div class="modal-header">
+							                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							                <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+							            </div>
+							            <div class="modal-body" id="myModalBody"></div>
+							            <div class="modal-footer">
+							                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+							            </div>
+							        </div><!-- /.modal-content -->
+							    </div><!-- /.modal -->
+							</div>
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div><!-- /.main-content -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+		<script src="assets/js/jquery-1.11.3.min.js"></script>
+		<![endif]-->
+		<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    	<script type="text/javascript" src="assets/js/bootstrapValidator.min.js"></script>
+		<!--  
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+		-->
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+			 $(document).on('click', '.toolbar a[data-target]', function(e) {
+				e.preventDefault();
+				var target = $(this).data('target');
+				$('.widget-box.visible').removeClass('visible');//hide others
+				$(target).addClass('visible');//show target
+			 });
+			});
+			
+			$(document).ready(function() {
+			    $('#registerForm').bootstrapValidator({
+			        message: 'This value is not valid',
+			        fields: {
+			            userName: {
+			                message: '用户昵称必填',
+			                validators: {
+			                    notEmpty: {
+			                        message: '用户昵称必填'
+			                    },
+			                    stringLength: {
+			                        min: 2,
+			                        max: 30,
+			                        message: '用户昵称长度大于2位小于30位'
+			                    }
+			                }
+			            },
+			            mobile: {
+			            	message: '手机号必填',
+			            	validators: {
+			            		notEmpty: {
+			            			message: '手机号不能为空'
+			            		},
+			            		regexp: {
+			                        regexp: /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
+			                        message: '请输入正确的手机号码'
+			                    },
+			            	}
+			            },
+			            password: {
+			            	message: '密码必填',
+			            	validators: {
+			            		notEmpty: {
+			            			message: '密码不能为空'
+			            		},
+			                    identical: {
+			                        field: 'confirmPassword',
+			                        message: '密码和确认密码不同'
+			                    },
+			                    stringLength: {
+			                        min: 6,
+			                        max: 10,
+			                        message: '用户昵称长度大于6位小于10位'
+			                    },
+			                    different: {
+			                        field: 'userName',
+			                        message: '密码不能和用户昵称相同'
+			                    }
+			            	}
+			            },
+			            confirmPassword: {
+			            	message: '确认密码必填',
+			            	validators: {
+			            		notEmpty: {
+			            			message: '确认密码不能为空'
+			            		},
+			                    identical: {
+			                        field: 'password',
+			                        message: '密码和确认密码不同'
+			                    },
+			                    different: {
+			                        field: 'userName',
+			                        message: '确认密码不能和用户昵称相同'
+			                    }
+			            	}
+			            },
+			            'agree[]': {
+	                        validators: {
+	                            notEmpty: {
+	                                message: '请仔细阅读用户协议'
+	                            }
+	                        }
+	                    }
+			        }
+			    });
+			    $('#loginForm').bootstrapValidator({
+			        message: 'This value is not valid',
+			        fields: {
+			            login_mobile: {
+			            	message: '手机号必填',
+			            	validators: {
+			            		notEmpty: {
+			            			message: '手机号不能为空'
+			            		},
+			            		regexp: {
+			                        regexp: /^(((13[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/,
+			                        message: '请输入正确的手机号码'
+			                    },
+			            	}
+			            },
+			            login_password: {
+			            	message: '密码必填',
+			            	validators: {
+			            		notEmpty: {
+			            			message: '密码不能为空'
+			            		},
+			                    stringLength: {
+			                        min: 6,
+			                        max: 10,
+			                        message: '用户昵称长度大于6位小于10位'
+			                    }
+			            	}
+			            }
+			        }
+			    });
+			    $("#registerButton").on('click', function(e) {
+			            // Prevent form submission
+			            e.preventDefault();
+
+			            // Get the form instance
+			            var $form = $("#registerForm");
+
+			            // Get the BootstrapValidator instance
+			            $("#registerForm").data('bootstrapValidator').validate();
+			            var isValid = $("#registerForm").data('bootstrapValidator').isValid();
+			            if(!isValid){
+			            	return false;
+			            }
+			            // Use Ajax to submit form data
+			            $.ajax({
+			            	url: $form.attr('action'), 
+			            	data: $form.serialize(),
+			            	type: 'POST',
+			            	dataType: 'json',
+			            	success: function(result) {
+			                	console.log(result);
+			            	},
+			            	statusCode: {
+			            		409:function(){
+			            			$('#myModalBody').html("该手机号已被注册");
+			            			$('#myModal').modal('show');
+			            		},
+			            		200:function(){
+			            			window.location.reload(true);
+			            		}
+			            	}
+			            });
+			    });
+			    $('#loginButton').on("click",function(e){
+			    	// Prevent form submission
+		            e.preventDefault();
+
+		            // Get the form instance
+		            var $form = $("#loginForm");
+
+		            // Get the BootstrapValidator instance
+		            $("#loginForm").data('bootstrapValidator').validate();
+		            var isValid = $("#loginForm").data('bootstrapValidator').isValid();
+		            if(!isValid){
+		            	return false;
+		            }
+		            var mobile = $("#login_mobile").val();
+		            // Use Ajax to submit form data
+		            $.ajax({
+		            	url: '/account/'+mobile, 
+		            	data: {"password": $('#login_password').val()},
+		            	type: 'get',
+		            	dataType: 'json',
+		            	success: function(result) {
+		                	console.log(result);
+		            	},
+		            	statusCode: {
+		            		200:function(){
+		            			window.location.href = "index.html";
+		            		},
+		            		401:function(){
+		            			$('#myModalBody').html("账户不存在");
+		            			$('#myModal').modal('show');
+		            		}
+		            	}
+		            });
+			    });
+			});
+		</script>
+	</body>
+</html>
